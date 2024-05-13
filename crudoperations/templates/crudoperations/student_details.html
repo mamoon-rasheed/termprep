@@ -1,0 +1,13 @@
+{% extends "crudoperations/base.html" %}
+
+{%block title%}Student Details{% endblock title%}
+
+{% block content %}
+<h2>Student Details</h2>
+<hr />
+<ul>
+    <li>{{student.name}}</li>
+    <li>{{student.roll}}</li>
+    <li>{{student.city}}</li>
+</ul>
+{% endblock content %}

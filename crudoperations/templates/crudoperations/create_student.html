@@ -1,0 +1,51 @@
+{% extends "crudoperations/base.html" %}   
+
+{% block title %}Create Student{% endblock title %}
+
+{% block content %}
+<h2>Create Student</h2>
+
+{% if msg %}
+    <p class='bg-primary p-2 text-white'>
+        {{msg}}
+    </p>
+{% endif %}
+
+{% if name_error %}
+    <p class='bg-danger p-2 text-white'>
+        {{name_error}}
+    </p>
+{% endif %}
+
+{% if roll_error %}
+    <p class='bg-danger p-2 text-white'>
+        {{roll_error}}
+    </p>
+{% endif %}
+
+{% if city_error %}
+    <p class='bg-danger p-2 text-white'>
+        {{city_error}}
+    </p>
+{% endif %}
+
+<form action={% url "create" %} method="post" class='form'>
+    {% csrf_token %}
+    
+        <div class="mb-3">
+          <label for="name" class="form-label">Student Name</label>
+          <input type="text" class="form-control" id="name" name='name' aria-describedby="name">
+          <div id="name" class="form-text">Please enter valid student name.</div>
+        </div>
+        <div class="mb-3">
+          <label for="roll" class="form-label">Roll Number</label>
+          <input type="number" class="form-control" id="roll" name='roll'>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city" name='city'>
+          </div>
+        <input type="submit" class="btn btn-primary" value='Create Student'>
+     
+</form>
+{% endblock %}
